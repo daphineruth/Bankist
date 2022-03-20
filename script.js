@@ -1,5 +1,5 @@
 'use strict';
-//selecting items
+
 const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
 const btnCloseModal = document.querySelector('.btn--close-modal');
@@ -68,7 +68,6 @@ document.querySelector('.nav__links').addEventListener('click', function (e) {
   }
 });
 
-
 // Tabbed component
 
 tabsContainer.addEventListener('click', function (e) {
@@ -105,18 +104,19 @@ const handleHover = function (e) {
   }
 };
 
+
 // Passing "argument" into handler
+
 nav.addEventListener('mouseover', handleHover.bind(0.5));
 nav.addEventListener('mouseout', handleHover.bind(1));
 
-
+// Sticky navigation: Intersection Observer API
 
 const header = document.querySelector('.header');
 const navHeight = nav.getBoundingClientRect().height;
 
 const stickyNav = function (entries) {
   const [entry] = entries;
-
   // console.log(entry);
 
   if (!entry.isIntersecting) nav.classList.add('sticky');
@@ -130,6 +130,7 @@ const headerObserver = new IntersectionObserver(stickyNav, {
 });
 
 headerObserver.observe(header);
+
 
 // Reveal sections
 const allSections = document.querySelectorAll('.section');
@@ -247,6 +248,7 @@ const slider = function () {
   init();
 
   // Event handlers
+
   btnRight.addEventListener('click', nextSlide);
   btnLeft.addEventListener('click', prevSlide);
 
