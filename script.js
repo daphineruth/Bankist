@@ -52,11 +52,24 @@ btnScrollTo.addEventListener('click', function (e) {
     document.documentElement.clientWidth
   );
 
-  
-
+   
   section1.scrollIntoView({ behavior: 'smooth' });
 });
 
+
+// Page navigation
+
+// document.querySelectorAll('.nav__link').forEach(function (el) {
+//   el.addEventListener('click', function (e) {
+//     e.preventDefault();
+//     const id = this.getAttribute('href');
+//     console.log(id);
+//     document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+//   });
+// });
+
+// 1. Add event listener to common parent element
+// 2. Determine what element originated the event
 
 document.querySelector('.nav__links').addEventListener('click', function (e) {
   e.preventDefault();
@@ -67,6 +80,7 @@ document.querySelector('.nav__links').addEventListener('click', function (e) {
     document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
   }
 });
+
 
 // Tabbed component
 
@@ -90,7 +104,7 @@ tabsContainer.addEventListener('click', function (e) {
 });
 
 
-// Menu fade animation
+// 
 const handleHover = function (e) {
   if (e.target.classList.contains('nav__link')) {
     const link = e.target;
@@ -105,8 +119,6 @@ const handleHover = function (e) {
 };
 
 
-// Passing "argument" into handler
-
 nav.addEventListener('mouseover', handleHover.bind(0.5));
 nav.addEventListener('mouseout', handleHover.bind(1));
 
@@ -117,7 +129,7 @@ const navHeight = nav.getBoundingClientRect().height;
 
 const stickyNav = function (entries) {
   const [entry] = entries;
-  // console.log(entry);
+  
 
   if (!entry.isIntersecting) nav.classList.add('sticky');
   else nav.classList.remove('sticky');
@@ -154,7 +166,7 @@ allSections.forEach(function (section) {
   section.classList.add('section--hidden');
 });
 
-// Lazy loading images
+
 const imgTargets = document.querySelectorAll('img[data-src]');
 
 const loadImg = function (entries, observer) {
@@ -248,7 +260,6 @@ const slider = function () {
   init();
 
   // Event handlers
-
   btnRight.addEventListener('click', nextSlide);
   btnLeft.addEventListener('click', prevSlide);
 
